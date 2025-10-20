@@ -31,8 +31,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipalView));
             panelMenu = new Panel();
-            iconButtonPedidosCompletados = new FontAwesome.Sharp.IconButton();
-            iconButtonResumenPedidos = new FontAwesome.Sharp.IconButton();
+            btnResumenPorDia = new FontAwesome.Sharp.IconButton();
+            btnDatosPagos = new FontAwesome.Sharp.IconButton();
             btnEstadisticasVentas = new FontAwesome.Sharp.IconButton();
             btnBalance = new FontAwesome.Sharp.IconButton();
             btnGastos = new FontAwesome.Sharp.IconButton();
@@ -61,8 +61,8 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(64, 64, 64);
-            panelMenu.Controls.Add(iconButtonPedidosCompletados);
-            panelMenu.Controls.Add(iconButtonResumenPedidos);
+            panelMenu.Controls.Add(btnResumenPorDia);
+            panelMenu.Controls.Add(btnDatosPagos);
             panelMenu.Controls.Add(btnEstadisticasVentas);
             panelMenu.Controls.Add(btnBalance);
             panelMenu.Controls.Add(btnGastos);
@@ -76,55 +76,56 @@
             panelMenu.Size = new Size(259, 921);
             panelMenu.TabIndex = 0;
             // 
-            // iconButtonPedidosCompletados
+            // btnResumenPorDia
             // 
-            iconButtonPedidosCompletados.BackColor = Color.FromArgb(64, 64, 64);
-            iconButtonPedidosCompletados.Dock = DockStyle.Top;
-            iconButtonPedidosCompletados.FlatAppearance.BorderSize = 0;
-            iconButtonPedidosCompletados.FlatStyle = FlatStyle.Flat;
-            iconButtonPedidosCompletados.Font = new Font("Bahnschrift SemiCondensed", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            iconButtonPedidosCompletados.ForeColor = Color.White;
-            iconButtonPedidosCompletados.IconChar = FontAwesome.Sharp.IconChar.None;
-            iconButtonPedidosCompletados.IconColor = Color.White;
-            iconButtonPedidosCompletados.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButtonPedidosCompletados.IconSize = 40;
-            iconButtonPedidosCompletados.Location = new Point(0, 769);
-            iconButtonPedidosCompletados.Margin = new Padding(3, 38, 3, 6);
-            iconButtonPedidosCompletados.Name = "iconButtonPedidosCompletados";
-            iconButtonPedidosCompletados.Padding = new Padding(11, 0, 22, 0);
-            iconButtonPedidosCompletados.RightToLeft = RightToLeft.No;
-            iconButtonPedidosCompletados.Size = new Size(259, 88);
-            iconButtonPedidosCompletados.TabIndex = 8;
-            iconButtonPedidosCompletados.Text = "--------------------";
-            iconButtonPedidosCompletados.TextAlign = ContentAlignment.MiddleLeft;
-            iconButtonPedidosCompletados.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButtonPedidosCompletados.UseVisualStyleBackColor = false;
-            iconButtonPedidosCompletados.Click += iconButtonPedidosCompletados_Click;
+            btnResumenPorDia.BackColor = Color.FromArgb(64, 64, 64);
+            btnResumenPorDia.Dock = DockStyle.Top;
+            btnResumenPorDia.FlatAppearance.BorderSize = 0;
+            btnResumenPorDia.FlatStyle = FlatStyle.Flat;
+            btnResumenPorDia.Font = new Font("Bahnschrift SemiCondensed", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnResumenPorDia.ForeColor = Color.White;
+            btnResumenPorDia.IconChar = FontAwesome.Sharp.IconChar.CalendarDays;
+            btnResumenPorDia.IconColor = Color.White;
+            btnResumenPorDia.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnResumenPorDia.IconSize = 40;
+            btnResumenPorDia.Location = new Point(0, 769);
+            btnResumenPorDia.Margin = new Padding(3, 38, 3, 6);
+            btnResumenPorDia.Name = "btnResumenPorDia";
+            btnResumenPorDia.Padding = new Padding(11, 0, 22, 0);
+            btnResumenPorDia.RightToLeft = RightToLeft.No;
+            btnResumenPorDia.Size = new Size(259, 88);
+            btnResumenPorDia.TabIndex = 8;
+            btnResumenPorDia.TabStop = false;
+            btnResumenPorDia.Text = "Resumen por día";
+            btnResumenPorDia.TextAlign = ContentAlignment.MiddleLeft;
+            btnResumenPorDia.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnResumenPorDia.UseVisualStyleBackColor = false;
+            btnResumenPorDia.Click += btnResumenPorDia_Click;
             // 
-            // iconButtonResumenPedidos
+            // btnDatosPagos
             // 
-            iconButtonResumenPedidos.BackColor = Color.FromArgb(64, 64, 64);
-            iconButtonResumenPedidos.Dock = DockStyle.Top;
-            iconButtonResumenPedidos.FlatAppearance.BorderSize = 0;
-            iconButtonResumenPedidos.FlatStyle = FlatStyle.Flat;
-            iconButtonResumenPedidos.Font = new Font("Bahnschrift SemiCondensed", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            iconButtonResumenPedidos.ForeColor = Color.White;
-            iconButtonResumenPedidos.IconChar = FontAwesome.Sharp.IconChar.None;
-            iconButtonResumenPedidos.IconColor = Color.White;
-            iconButtonResumenPedidos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButtonResumenPedidos.IconSize = 40;
-            iconButtonResumenPedidos.Location = new Point(0, 681);
-            iconButtonResumenPedidos.Margin = new Padding(3, 38, 3, 6);
-            iconButtonResumenPedidos.Name = "iconButtonResumenPedidos";
-            iconButtonResumenPedidos.Padding = new Padding(11, 0, 22, 0);
-            iconButtonResumenPedidos.RightToLeft = RightToLeft.No;
-            iconButtonResumenPedidos.Size = new Size(259, 88);
-            iconButtonResumenPedidos.TabIndex = 7;
-            iconButtonResumenPedidos.Text = "---------------------";
-            iconButtonResumenPedidos.TextAlign = ContentAlignment.MiddleLeft;
-            iconButtonResumenPedidos.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButtonResumenPedidos.UseVisualStyleBackColor = false;
-            iconButtonResumenPedidos.Click += iconButtonResumenPedidos_Click;
+            btnDatosPagos.BackColor = Color.FromArgb(64, 64, 64);
+            btnDatosPagos.Dock = DockStyle.Top;
+            btnDatosPagos.FlatAppearance.BorderSize = 0;
+            btnDatosPagos.FlatStyle = FlatStyle.Flat;
+            btnDatosPagos.Font = new Font("Bahnschrift SemiCondensed", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnDatosPagos.ForeColor = Color.White;
+            btnDatosPagos.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
+            btnDatosPagos.IconColor = Color.White;
+            btnDatosPagos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnDatosPagos.IconSize = 40;
+            btnDatosPagos.Location = new Point(0, 681);
+            btnDatosPagos.Margin = new Padding(3, 38, 3, 6);
+            btnDatosPagos.Name = "btnDatosPagos";
+            btnDatosPagos.Padding = new Padding(11, 0, 22, 0);
+            btnDatosPagos.RightToLeft = RightToLeft.No;
+            btnDatosPagos.Size = new Size(259, 88);
+            btnDatosPagos.TabIndex = 7;
+            btnDatosPagos.Text = "Datos Forma de Pago";
+            btnDatosPagos.TextAlign = ContentAlignment.MiddleLeft;
+            btnDatosPagos.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnDatosPagos.UseVisualStyleBackColor = false;
+            btnDatosPagos.Click += btnDatosPagos_Click;
             // 
             // btnEstadisticasVentas
             // 
@@ -423,8 +424,8 @@
         private Panel panel2;
         private Panel panel1;
         private FontAwesome.Sharp.IconButton iconButtonVentaDetalle;
-        private FontAwesome.Sharp.IconButton iconButtonPedidosCompletados;
-        private FontAwesome.Sharp.IconButton iconButtonResumenPedidos;
+        private FontAwesome.Sharp.IconButton btnResumenPorDia;
+        private FontAwesome.Sharp.IconButton btnDatosPagos;
         private FontAwesome.Sharp.IconButton btnEstadisticasVentas;
         private FontAwesome.Sharp.IconButton btnBalance;
         private FontAwesome.Sharp.IconButton btnGastos;

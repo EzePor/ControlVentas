@@ -42,9 +42,10 @@
             dgvEstadisticas = new DataGridView();
             lblProductoMasVendido = new Label();
             lblTotalProductos = new Label();
-            lblTotalFacturado = new Label();
+            lblTotalFacturadoProductos = new Label();
             lblRubroMasVendido = new Label();
             panel1 = new Panel();
+            lblTotalFacturadoFotos = new Label();
             lblFotografia = new Label();
             btnVerPorRubro = new FontAwesome.Sharp.IconButton();
             btnVerPorProducto = new FontAwesome.Sharp.IconButton();
@@ -95,7 +96,7 @@
             btnAnio.IconChar = FontAwesome.Sharp.IconChar.None;
             btnAnio.IconColor = Color.Black;
             btnAnio.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnAnio.Location = new Point(826, 100);
+            btnAnio.Location = new Point(611, 100);
             btnAnio.Name = "btnAnio";
             btnAnio.Size = new Size(94, 42);
             btnAnio.TabIndex = 16;
@@ -110,7 +111,7 @@
             btnMes.IconChar = FontAwesome.Sharp.IconChar.None;
             btnMes.IconColor = Color.Black;
             btnMes.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnMes.Location = new Point(600, 100);
+            btnMes.Location = new Point(459, 100);
             btnMes.Name = "btnMes";
             btnMes.Size = new Size(94, 42);
             btnMes.TabIndex = 15;
@@ -125,7 +126,7 @@
             btnSemana.IconChar = FontAwesome.Sharp.IconChar.None;
             btnSemana.IconColor = Color.Black;
             btnSemana.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnSemana.Location = new Point(397, 100);
+            btnSemana.Location = new Point(316, 100);
             btnSemana.Name = "btnSemana";
             btnSemana.Size = new Size(94, 42);
             btnSemana.TabIndex = 14;
@@ -140,7 +141,7 @@
             btnHoy.IconChar = FontAwesome.Sharp.IconChar.None;
             btnHoy.IconColor = Color.Black;
             btnHoy.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnHoy.Location = new Point(209, 100);
+            btnHoy.Location = new Point(170, 100);
             btnHoy.Name = "btnHoy";
             btnHoy.Size = new Size(94, 42);
             btnHoy.TabIndex = 13;
@@ -164,7 +165,7 @@
             // cmbRubro
             // 
             cmbRubro.FormattingEnabled = true;
-            cmbRubro.Location = new Point(1007, 110);
+            cmbRubro.Location = new Point(873, 110);
             cmbRubro.Name = "cmbRubro";
             cmbRubro.Size = new Size(246, 32);
             cmbRubro.TabIndex = 18;
@@ -173,6 +174,7 @@
             // 
             dgvEstadisticas.AllowUserToAddRows = false;
             dgvEstadisticas.AllowUserToDeleteRows = false;
+            dgvEstadisticas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvEstadisticas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvEstadisticas.BackgroundColor = Color.FromArgb(192, 192, 255);
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -192,7 +194,7 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.White;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvEstadisticas.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvEstadisticas.Location = new Point(25, 154);
+            dgvEstadisticas.Location = new Point(21, 154);
             dgvEstadisticas.Name = "dgvEstadisticas";
             dgvEstadisticas.ReadOnly = true;
             dgvEstadisticas.RowHeadersWidth = 51;
@@ -202,50 +204,56 @@
             // 
             // lblProductoMasVendido
             // 
+            lblProductoMasVendido.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblProductoMasVendido.AutoSize = true;
             lblProductoMasVendido.Font = new Font("Bahnschrift SemiCondensed", 13.8F);
             lblProductoMasVendido.ForeColor = Color.White;
-            lblProductoMasVendido.Location = new Point(88, 13);
+            lblProductoMasVendido.Location = new Point(22, 15);
             lblProductoMasVendido.Name = "lblProductoMasVendido";
             lblProductoMasVendido.Size = new Size(0, 28);
             lblProductoMasVendido.TabIndex = 20;
             // 
             // lblTotalProductos
             // 
+            lblTotalProductos.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblTotalProductos.AutoSize = true;
             lblTotalProductos.Font = new Font("Bahnschrift SemiCondensed", 13.8F);
             lblTotalProductos.ForeColor = Color.White;
-            lblTotalProductos.Location = new Point(774, 52);
+            lblTotalProductos.Location = new Point(746, 59);
             lblTotalProductos.Name = "lblTotalProductos";
             lblTotalProductos.Size = new Size(0, 28);
             lblTotalProductos.TabIndex = 21;
             // 
-            // lblTotalFacturado
+            // lblTotalFacturadoProductos
             // 
-            lblTotalFacturado.AutoSize = true;
-            lblTotalFacturado.Font = new Font("Bahnschrift SemiCondensed", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTotalFacturado.ForeColor = Color.White;
-            lblTotalFacturado.Location = new Point(1265, 44);
-            lblTotalFacturado.Name = "lblTotalFacturado";
-            lblTotalFacturado.Size = new Size(0, 36);
-            lblTotalFacturado.TabIndex = 22;
+            lblTotalFacturadoProductos.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblTotalFacturadoProductos.AutoSize = true;
+            lblTotalFacturadoProductos.Font = new Font("Bahnschrift SemiCondensed", 13.8F);
+            lblTotalFacturadoProductos.ForeColor = Color.White;
+            lblTotalFacturadoProductos.Location = new Point(1144, 57);
+            lblTotalFacturadoProductos.Name = "lblTotalFacturadoProductos";
+            lblTotalFacturadoProductos.Size = new Size(0, 28);
+            lblTotalFacturadoProductos.TabIndex = 22;
             // 
             // lblRubroMasVendido
             // 
+            lblRubroMasVendido.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblRubroMasVendido.AutoSize = true;
             lblRubroMasVendido.Font = new Font("Bahnschrift SemiCondensed", 13.8F);
             lblRubroMasVendido.ForeColor = Color.White;
-            lblRubroMasVendido.Location = new Point(89, 56);
+            lblRubroMasVendido.Location = new Point(23, 58);
             lblRubroMasVendido.Name = "lblRubroMasVendido";
             lblRubroMasVendido.Size = new Size(0, 28);
             lblRubroMasVendido.TabIndex = 23;
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.FromArgb(0, 0, 192);
+            panel1.Controls.Add(lblTotalFacturadoFotos);
             panel1.Controls.Add(lblFotografia);
             panel1.Controls.Add(lblRubroMasVendido);
-            panel1.Controls.Add(lblTotalFacturado);
+            panel1.Controls.Add(lblTotalFacturadoProductos);
             panel1.Controls.Add(lblTotalProductos);
             panel1.Controls.Add(lblProductoMasVendido);
             panel1.Location = new Point(12, 787);
@@ -253,12 +261,24 @@
             panel1.Size = new Size(1676, 125);
             panel1.TabIndex = 24;
             // 
+            // lblTotalFacturadoFotos
+            // 
+            lblTotalFacturadoFotos.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblTotalFacturadoFotos.AutoSize = true;
+            lblTotalFacturadoFotos.Font = new Font("Bahnschrift SemiCondensed", 13.8F);
+            lblTotalFacturadoFotos.ForeColor = Color.White;
+            lblTotalFacturadoFotos.Location = new Point(1144, 13);
+            lblTotalFacturadoFotos.Name = "lblTotalFacturadoFotos";
+            lblTotalFacturadoFotos.Size = new Size(0, 28);
+            lblTotalFacturadoFotos.TabIndex = 25;
+            // 
             // lblFotografia
             // 
+            lblFotografia.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblFotografia.AutoSize = true;
             lblFotografia.Font = new Font("Bahnschrift SemiCondensed", 13.8F);
             lblFotografia.ForeColor = Color.White;
-            lblFotografia.Location = new Point(773, 14);
+            lblFotografia.Location = new Point(745, 21);
             lblFotografia.Name = "lblFotografia";
             lblFotografia.Size = new Size(0, 28);
             lblFotografia.TabIndex = 24;
@@ -268,9 +288,9 @@
             btnVerPorRubro.IconChar = FontAwesome.Sharp.IconChar.LayerGroup;
             btnVerPorRubro.IconColor = Color.Black;
             btnVerPorRubro.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnVerPorRubro.Location = new Point(1308, 85);
+            btnVerPorRubro.Location = new Point(1177, 85);
             btnVerPorRubro.Name = "btnVerPorRubro";
-            btnVerPorRubro.Size = new Size(138, 57);
+            btnVerPorRubro.Size = new Size(178, 57);
             btnVerPorRubro.TabIndex = 25;
             btnVerPorRubro.Text = "Ver por Rubro";
             btnVerPorRubro.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -282,9 +302,9 @@
             btnVerPorProducto.IconChar = FontAwesome.Sharp.IconChar.CubesStacked;
             btnVerPorProducto.IconColor = Color.Black;
             btnVerPorProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnVerPorProducto.Location = new Point(1478, 85);
+            btnVerPorProducto.Location = new Point(1379, 85);
             btnVerPorProducto.Name = "btnVerPorProducto";
-            btnVerPorProducto.Size = new Size(138, 57);
+            btnVerPorProducto.Size = new Size(210, 57);
             btnVerPorProducto.TabIndex = 26;
             btnVerPorProducto.Text = "Ver por Producto";
             btnVerPorProducto.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -307,7 +327,7 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.White;
-            label1.Location = new Point(1034, 83);
+            label1.Location = new Point(888, 83);
             label1.Name = "label1";
             label1.Size = new Size(64, 24);
             label1.TabIndex = 51;
@@ -315,12 +335,13 @@
             // 
             // btnExportarExcel
             // 
+            btnExportarExcel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnExportarExcel.BackColor = Color.FromArgb(0, 192, 0);
             btnExportarExcel.ForeColor = Color.White;
             btnExportarExcel.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
             btnExportarExcel.IconColor = Color.White;
             btnExportarExcel.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnExportarExcel.Location = new Point(1453, 12);
+            btnExportarExcel.Location = new Point(1440, 12);
             btnExportarExcel.Name = "btnExportarExcel";
             btnExportarExcel.Size = new Size(176, 67);
             btnExportarExcel.TabIndex = 52;
@@ -377,7 +398,7 @@
         private DataGridView dgvEstadisticas;
         private Label lblProductoMasVendido;
         private Label lblTotalProductos;
-        private Label lblTotalFacturado;
+        private Label lblTotalFacturadoProductos;
         private Label lblRubroMasVendido;
         private Panel panel1;
         private Label lblFotografia;
@@ -386,6 +407,6 @@
         private CheckBox chkIncluirFotografia;
         private Label label1;
         private FontAwesome.Sharp.IconButton btnExportarExcel;
-       
+        private Label lblTotalFacturadoFotos;
     }
 }

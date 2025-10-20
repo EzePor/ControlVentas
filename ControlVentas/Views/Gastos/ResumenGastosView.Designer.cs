@@ -67,6 +67,7 @@
             // 
             dgvGastos.AllowUserToAddRows = false;
             dgvGastos.AllowUserToDeleteRows = false;
+            dgvGastos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvGastos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(192, 192, 255);
@@ -173,6 +174,7 @@
             // 
             // btnReporte
             // 
+            btnReporte.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnReporte.BackColor = Color.FromArgb(0, 192, 0);
             btnReporte.ForeColor = Color.Black;
             btnReporte.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
@@ -189,6 +191,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             panel1.BackColor = Color.FromArgb(128, 128, 255);
             panel1.Controls.Add(lblTotalGastos);
             panel1.Location = new Point(88, 729);
@@ -198,6 +201,7 @@
             // 
             // lblTotalGastos
             // 
+            lblTotalGastos.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblTotalGastos.AutoSize = true;
             lblTotalGastos.Font = new Font("Bahnschrift SemiCondensed", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTotalGastos.ForeColor = Color.Black;
@@ -208,6 +212,7 @@
             // 
             // btnAgregarGasto
             // 
+            btnAgregarGasto.Anchor = AnchorStyles.Bottom;
             btnAgregarGasto.BackColor = Color.Blue;
             btnAgregarGasto.Font = new Font("Bahnschrift SemiCondensed", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAgregarGasto.ForeColor = Color.White;
@@ -216,7 +221,7 @@
             btnAgregarGasto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnAgregarGasto.Location = new Point(833, 764);
             btnAgregarGasto.Name = "btnAgregarGasto";
-            btnAgregarGasto.Size = new Size(217, 55);
+            btnAgregarGasto.Size = new Size(217, 74);
             btnAgregarGasto.TabIndex = 17;
             btnAgregarGasto.Text = "Agregar gasto";
             btnAgregarGasto.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -234,7 +239,7 @@
             btnFiltrar.IconSize = 30;
             btnFiltrar.Location = new Point(1071, 17);
             btnFiltrar.Name = "btnFiltrar";
-            btnFiltrar.Size = new Size(132, 41);
+            btnFiltrar.Size = new Size(132, 51);
             btnFiltrar.TabIndex = 18;
             btnFiltrar.Text = "Filtrar";
             btnFiltrar.TextImageRelation = TextImageRelation.ImageBeforeText;

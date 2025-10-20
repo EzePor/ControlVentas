@@ -227,5 +227,19 @@ namespace ControlVentas
             labelTituloChildForm.Text = "Estadísticas de Ventas";
             OpenChildForm(new EstadisticasVentasView(new ControlVentaContext()));
         }
+
+        private void btnDatosPagos_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            labelTituloChildForm.Text = "Datos de Pagos";
+            OpenChildForm(new DatosFormaPagoView(new ControlVentaContext()));
+        }
+
+        private void btnResumenPorDia_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            labelTituloChildForm.Text = "Ventas por Día";
+            OpenChildForm(new VentasPorDiaView(new ControlVentaContext()));
+        }
     }
 }

@@ -131,6 +131,7 @@
             // 
             dgvVentas.AllowUserToAddRows = false;
             dgvVentas.AllowUserToDeleteRows = false;
+            dgvVentas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvVentas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(192, 192, 255);
@@ -161,6 +162,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Bottom;
             panel1.BackColor = Color.FromArgb(128, 128, 255);
             panel1.Controls.Add(lblTotalPeriodo);
             panel1.Location = new Point(52, 743);
@@ -170,6 +172,7 @@
             // 
             // lblTotalPeriodo
             // 
+            lblTotalPeriodo.Anchor = AnchorStyles.Bottom;
             lblTotalPeriodo.AutoSize = true;
             lblTotalPeriodo.Font = new Font("Bahnschrift SemiCondensed", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTotalPeriodo.Location = new Point(73, 33);
@@ -179,6 +182,7 @@
             // 
             // btnReporte
             // 
+            btnReporte.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnReporte.BackColor = Color.FromArgb(0, 192, 0);
             btnReporte.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
             btnReporte.IconColor = Color.Black;
@@ -217,9 +221,9 @@
             btnFiltrar.IconColor = Color.FromArgb(192, 0, 0);
             btnFiltrar.IconFont = FontAwesome.Sharp.IconFont.Solid;
             btnFiltrar.IconSize = 30;
-            btnFiltrar.Location = new Point(979, 27);
+            btnFiltrar.Location = new Point(978, 17);
             btnFiltrar.Name = "btnFiltrar";
-            btnFiltrar.Size = new Size(122, 37);
+            btnFiltrar.Size = new Size(122, 53);
             btnFiltrar.TabIndex = 9;
             btnFiltrar.Text = "Filtrar";
             btnFiltrar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -228,6 +232,7 @@
             // 
             // lblCant
             // 
+            lblCant.Anchor = AnchorStyles.Bottom;
             lblCant.BackColor = Color.FromArgb(128, 128, 255);
             lblCant.Controls.Add(lblCantidadVentas);
             lblCant.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -238,6 +243,7 @@
             // 
             // lblCantidadVentas
             // 
+            lblCantidadVentas.Anchor = AnchorStyles.Bottom;
             lblCantidadVentas.AutoSize = true;
             lblCantidadVentas.Font = new Font("Bahnschrift SemiCondensed", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblCantidadVentas.Location = new Point(16, 31);

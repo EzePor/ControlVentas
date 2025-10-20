@@ -49,7 +49,6 @@
             btnVerGastos = new FontAwesome.Sharp.IconButton();
             btnVerTodo = new FontAwesome.Sharp.IconButton();
             btnReporte = new FontAwesome.Sharp.IconButton();
-
             ((System.ComponentModel.ISupportInitialize)dgvBalance).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -65,9 +64,9 @@
             btnFiltrar.IconColor = Color.FromArgb(192, 0, 0);
             btnFiltrar.IconFont = FontAwesome.Sharp.IconFont.Solid;
             btnFiltrar.IconSize = 30;
-            btnFiltrar.Location = new Point(982, 23);
+            btnFiltrar.Location = new Point(982, 17);
             btnFiltrar.Name = "btnFiltrar";
-            btnFiltrar.Size = new Size(132, 32);
+            btnFiltrar.Size = new Size(132, 54);
             btnFiltrar.TabIndex = 18;
             btnFiltrar.Text = "Filtrar";
             btnFiltrar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -93,6 +92,7 @@
             // 
             dgvBalance.AllowUserToAddRows = false;
             dgvBalance.AllowUserToDeleteRows = false;
+            dgvBalance.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvBalance.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(192, 192, 255);
@@ -201,6 +201,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             panel1.BackColor = Color.FromArgb(128, 128, 255);
             panel1.Controls.Add(lblTotalVentas);
             panel1.Location = new Point(44, 730);
@@ -210,6 +211,7 @@
             // 
             // lblTotalVentas
             // 
+            lblTotalVentas.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblTotalVentas.AutoSize = true;
             lblTotalVentas.Font = new Font("Bahnschrift SemiCondensed", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTotalVentas.Location = new Point(51, 38);
@@ -219,6 +221,7 @@
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Bottom;
             panel2.BackColor = Color.FromArgb(128, 128, 255);
             panel2.Controls.Add(lblTotalGastos);
             panel2.Location = new Point(525, 730);
@@ -228,6 +231,7 @@
             // 
             // lblTotalGastos
             // 
+            lblTotalGastos.Anchor = AnchorStyles.Bottom;
             lblTotalGastos.AutoSize = true;
             lblTotalGastos.Font = new Font("Bahnschrift SemiCondensed", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTotalGastos.Location = new Point(56, 36);
@@ -237,6 +241,7 @@
             // 
             // panel3
             // 
+            panel3.Anchor = AnchorStyles.Bottom;
             panel3.BackColor = Color.FromArgb(128, 128, 255);
             panel3.Controls.Add(lblResultado);
             panel3.Location = new Point(1006, 730);
@@ -246,6 +251,7 @@
             // 
             // lblResultado
             // 
+            lblResultado.Anchor = AnchorStyles.Bottom;
             lblResultado.AutoSize = true;
             lblResultado.Font = new Font("Bahnschrift SemiCondensed", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblResultado.Location = new Point(49, 36);
@@ -255,6 +261,7 @@
             // 
             // btnVerVentas
             // 
+            btnVerVentas.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnVerVentas.BackColor = Color.White;
             btnVerVentas.FlatStyle = FlatStyle.Flat;
             btnVerVentas.ForeColor = Color.FromArgb(0, 192, 0);
@@ -262,7 +269,7 @@
             btnVerVentas.IconColor = Color.FromArgb(0, 192, 0);
             btnVerVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnVerVentas.IconSize = 30;
-            btnVerVentas.Location = new Point(1192, 73);
+            btnVerVentas.Location = new Point(1192, 83);
             btnVerVentas.Name = "btnVerVentas";
             btnVerVentas.Size = new Size(135, 43);
             btnVerVentas.TabIndex = 22;
@@ -272,6 +279,7 @@
             // 
             // btnVerGastos
             // 
+            btnVerGastos.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnVerGastos.BackColor = Color.White;
             btnVerGastos.FlatStyle = FlatStyle.Flat;
             btnVerGastos.ForeColor = Color.Red;
@@ -279,7 +287,7 @@
             btnVerGastos.IconColor = Color.Red;
             btnVerGastos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnVerGastos.IconSize = 30;
-            btnVerGastos.Location = new Point(1333, 73);
+            btnVerGastos.Location = new Point(1333, 83);
             btnVerGastos.Name = "btnVerGastos";
             btnVerGastos.Size = new Size(135, 43);
             btnVerGastos.TabIndex = 23;
@@ -289,6 +297,7 @@
             // 
             // btnVerTodo
             // 
+            btnVerTodo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnVerTodo.BackColor = Color.White;
             btnVerTodo.FlatStyle = FlatStyle.Flat;
             btnVerTodo.ForeColor = Color.Blue;
@@ -296,7 +305,7 @@
             btnVerTodo.IconColor = Color.Blue;
             btnVerTodo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnVerTodo.IconSize = 30;
-            btnVerTodo.Location = new Point(1474, 73);
+            btnVerTodo.Location = new Point(1474, 83);
             btnVerTodo.Name = "btnVerTodo";
             btnVerTodo.Size = new Size(135, 43);
             btnVerTodo.TabIndex = 24;
@@ -306,6 +315,7 @@
             // 
             // btnReporte
             // 
+            btnReporte.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnReporte.BackColor = Color.FromArgb(0, 192, 0);
             btnReporte.ForeColor = Color.Black;
             btnReporte.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
@@ -313,13 +323,12 @@
             btnReporte.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnReporte.Location = new Point(1421, 12);
             btnReporte.Name = "btnReporte";
-            btnReporte.Size = new Size(135, 55);
+            btnReporte.Size = new Size(135, 65);
             btnReporte.TabIndex = 25;
             btnReporte.Text = "Reporte";
             btnReporte.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnReporte.UseVisualStyleBackColor = false;
             btnReporte.Click += btnReporte_Click;
-
             // 
             // BalanceView
             // 
@@ -327,7 +336,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1660, 860);
-
             Controls.Add(btnReporte);
             Controls.Add(btnVerTodo);
             Controls.Add(btnVerGastos);
@@ -357,7 +365,6 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

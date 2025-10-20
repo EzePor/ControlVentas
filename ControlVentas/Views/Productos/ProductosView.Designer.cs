@@ -53,10 +53,10 @@
             BtnBuscarProducto.IconChar = FontAwesome.Sharp.IconChar.Search;
             BtnBuscarProducto.IconColor = Color.White;
             BtnBuscarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            BtnBuscarProducto.IconSize = 35;
+            BtnBuscarProducto.IconSize = 25;
             BtnBuscarProducto.Location = new Point(511, 97);
             BtnBuscarProducto.Name = "BtnBuscarProducto";
-            BtnBuscarProducto.Size = new Size(126, 39);
+            BtnBuscarProducto.Size = new Size(126, 46);
             BtnBuscarProducto.TabIndex = 11;
             BtnBuscarProducto.Text = "&Buscar";
             BtnBuscarProducto.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -109,6 +109,7 @@
             // 
             // iconButtonEliminar
             // 
+            iconButtonEliminar.Anchor = AnchorStyles.Bottom;
             iconButtonEliminar.BackColor = Color.FromArgb(224, 224, 224);
             iconButtonEliminar.Font = new Font("Bahnschrift SemiCondensed", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             iconButtonEliminar.ForeColor = Color.Red;
@@ -126,6 +127,7 @@
             // 
             // iconButtonAgregar
             // 
+            iconButtonAgregar.Anchor = AnchorStyles.Bottom;
             iconButtonAgregar.BackColor = Color.FromArgb(224, 224, 224);
             iconButtonAgregar.Font = new Font("Bahnschrift SemiCondensed", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             iconButtonAgregar.ForeColor = Color.FromArgb(0, 192, 0);
@@ -134,7 +136,7 @@
             iconButtonAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButtonAgregar.Location = new Point(145, 820);
             iconButtonAgregar.Name = "iconButtonAgregar";
-            iconButtonAgregar.Size = new Size(159, 63);
+            iconButtonAgregar.Size = new Size(233, 63);
             iconButtonAgregar.TabIndex = 12;
             iconButtonAgregar.Text = "Agregar";
             iconButtonAgregar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -143,13 +145,14 @@
             // 
             // iconButtonEditar
             // 
+            iconButtonEditar.Anchor = AnchorStyles.Bottom;
             iconButtonEditar.BackColor = Color.FromArgb(224, 224, 224);
             iconButtonEditar.Font = new Font("Bahnschrift SemiCondensed", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             iconButtonEditar.ForeColor = Color.Blue;
             iconButtonEditar.IconChar = FontAwesome.Sharp.IconChar.Pencil;
             iconButtonEditar.IconColor = Color.Blue;
             iconButtonEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButtonEditar.Location = new Point(365, 820);
+            iconButtonEditar.Location = new Point(521, 820);
             iconButtonEditar.Name = "iconButtonEditar";
             iconButtonEditar.Size = new Size(179, 63);
             iconButtonEditar.TabIndex = 15;
@@ -173,6 +176,7 @@
             btnLimpiarBusqueda.IconChar = FontAwesome.Sharp.IconChar.Brush;
             btnLimpiarBusqueda.IconColor = Color.FromArgb(192, 0, 0);
             btnLimpiarBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnLimpiarBusqueda.IconSize = 35;
             btnLimpiarBusqueda.Location = new Point(1157, 83);
             btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
             btnLimpiarBusqueda.Size = new Size(137, 49);

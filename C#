@@ -1,0 +1,208 @@
+ControlVentas\Views\Ventas\DatosFormaPagoView.cs
+using ControlVentas.Data;
+using ControlVentas.Enums;
+using ControlVentas.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace ControlVentas.Views.Ventas
+{
+    public class DatosFormaPagoView : Form
+    {
+        private readonly ControlVentaContext _context;
+
+        private DateTimePicker dtpDesde;
+        private DateTimePicker dtpHasta;
+        private Button btnHoy;
+        private Button btnSemana;
+        private Button btnMes;
+        private Button btnAnio;
+        private Button btnFiltrar;
+        private DataGridView dgvResumen;
+        private FlowLayoutPanel flpFormasPago;
+        private Label lblTotalPeriodo;
+        private Label lblCantidadVentas;
+
+        public DatosFormaPagoView(ControlVentaContext context)
+        {
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+            InitializeComponentCustom();
+            dtpDesde.Value = DateTime.Today;
+            dtpHasta.Value = DateTime.Today;
+            CargarResumenPorRango(dtpDesde.Value.Date, dtpHasta.Value.Date);
+        }
+
+        private void InitializeComponentCustom()
+        {
+            // Form
+            Text = "Resumen por Forma de Pago";
+            BackColor = Color.FromArgb(64, 64, 64);
+            Size = new Size(1000, 700);
+            StartPosition = FormStartPosition.CenterParent;
+
+            // DatePickers y botones
+            dtpDesde = new DateTimePicker { Location = new Point(16, 14), Width = 220 };
+            dtpHasta = new DateTimePicker { Location = new Point(250, 14), Width = 220 };
+            btnFiltrar = new Button { Text = "Filtrar", Location = new Point(490, 12), Width = 80 };
+            btnHoy = new Button { Text = "Hoy", Location = new Point(16, 50), Width = 80 };
+            btnSemana = new Button { Text = "Semana", Location = new Point(110, 50), Width = 90 };
+            btnMes = new Button { Text = "Mes", Location = new Point(210, 50), Width = 80 };
+            btnAnio = new Button { Text = "Año", Location = new Point(300, 50), Width = 80 };
+
+            Controls.AddRange(new Control[] { dtpDesde, dtpHasta, btnFiltrar, btnHoy, btnSemana, btnMes, btnAnio });
+
+            // Labels resumen rápido
+            lblTotalPeriodo = new Label
+            {
+                ForeColor = Color.White,
+                Location = new Point(400, 50),
+                AutoSize = true,
+                Font = new Font("Bahnschrift SemiCondensed", 11, FontStyle.Bold)
+            };
+            lblCantidadVentas = new Label
+            {
+                ForeColor = Color.White,
+                Location = new Point(650, 50),
+                AutoSize = true,
+                Font = new Font("Bahnschrift SemiCondensed", 11, FontStyle.Bold)
+            };
+            Controls.Add(lblTotalPeriodo);
+            Controls.Add(lblCantidadVentas);
+
+            // DataGridView resumen
+            dgvResumen = new DataGridView
+            {
+                Location = new Point(16, 100),
+                Size = new Size(600, 520),
+                ReadOnly = true,
+                AllowUserToAddRows = false,
+                SelectionMode = DataGridViewSelectionMode.FullRowSelect,
+                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            };
+            Controls.Add(dgvResumen);
+
+            // FlowLayoutPanel con labels por forma de pago
+            flpFormasPago = new FlowLayoutPanel
+            {
+                Location = new Point(640, 100),
+                Size = new Size(320, 520),
+                AutoScroll = true,
+                FlowDirection = FlowDirection.TopDown,
+                WrapContents = false,
+                BackColor = Color.FromArgb(48, 48, 48)
+            };
+            Controls.Add(flpFormasPago);
+
+            // Eventos
+            btnFiltrar.Click += (s, e) => CargarResumenPorRango(dtpDesde.Value.Date, dtpHasta.Value.Date);
+            btnHoy.Click += (s, e) =>
+            {
+                dtpDesde.Value = DateTime.Today;
+                dtpHasta.Value = DateTime.Today;
+                CargarResumenPorRango(DateTime.Today, DateTime.Today);
+            };
+            btnSemana.Click += (s, e) =>
+            {
+                var inicioSemana = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek);
+                var finSemana = inicioSemana.AddDays(6);
+                dtpDesde.Value = inicioSemana;
+                dtpHasta.Value = finSemana;
+                CargarResumenPorRango(inicioSemana, finSemana);
+            };
+            btnMes.Click += (s, e) =>
+            {
+                var inicioMes = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+                var finMes = inicioMes.AddMonths(1).AddDays(-1);
+                dtpDesde.Value = inicioMes;
+                dtpHasta.Value = finMes;
+                CargarResumenPorRango(inicioMes, finMes);
+            };
+            btnAnio.Click += (s, e) =>
+            {
+                var inicioAnio = new DateTime(DateTime.Today.Year, 1, 1);
+                var finAnio = new DateTime(DateTime.Today.Year, 12, 31);
+                dtpDesde.Value = inicioAnio;
+                dtpHasta.Value = finAnio;
+                CargarResumenPorRango(inicioAnio, finAnio);
+            };
+        }
+
+        private void CargarResumenPorRango(DateTime desde, DateTime hasta)
+        {
+            // Obtener ventas con detalles y productos
+            var ventas = _context.Ventas
+                .Where(v => v.fecha.Date >= desde && v.fecha.Date <= hasta && !v.eliminado)
+                .Include(v => v.detalles)
+                .ThenInclude(d => d.producto)
+                .ToList();
+
+            // Resumen general
+            lblTotalPeriodo.Text = $"Total período: $ {ventas.Sum(v => v.total):N2}";
+            lblCantidadVentas.Text = $"Cantidad ventas: {ventas.Count}";
+
+            // Agrupar por forma de pago (tomando la forma del primer detalle)
+            var agrupado = ventas
+                .GroupBy(v => v.detalles.FirstOrDefault()?.formaPagoEnum)
+                .Select(g => new
+                {
+                    Forma = g.Key.HasValue ? g.Key.Value.ToString() : "Sin forma",
+                    CantidadVentas = g.Count(),
+                    TotalFacturado = g.Sum(v => v.total)
+                })
+                .OrderByDescending(x => x.TotalFacturado)
+                .ToList();
+
+            // Preparar DataGridView
+            dgvResumen.DataSource = agrupado;
+            if (dgvResumen.Columns.Contains("Forma"))
+                dgvResumen.Columns["Forma"].HeaderText = "Forma de Pago";
+            if (dgvResumen.Columns.Contains("CantidadVentas"))
+                dgvResumen.Columns["CantidadVentas"].HeaderText = "Cantidad de Ventas";
+            if (dgvResumen.Columns.Contains("TotalFacturado"))
+                dgvResumen.Columns["TotalFacturado"].HeaderText = "Total Facturado";
+
+            // Rellenar FlowLayoutPanel con todas las formas (incluyendo 0)
+            flpFormasPago.Controls.Clear();
+            foreach (FormaPagoEnum forma in Enum.GetValues(typeof(FormaPagoEnum)))
+            {
+                var datos = agrupado.FirstOrDefault(a => a.Forma.Equals(forma.ToString(), StringComparison.OrdinalIgnoreCase));
+                int cantidad = datos?.CantidadVentas ?? 0;
+                decimal total = datos?.TotalFacturado ?? 0m;
+
+                var lbl = new Label
+                {
+                    AutoSize = false,
+                    Width = flpFormasPago.ClientSize.Width - 25,
+                    Height = 36,
+                    ForeColor = Color.White,
+                    Font = new Font("Bahnschrift SemiCondensed", 11F, FontStyle.Bold),
+                    Text = $"{forma}: {cantidad} ventas  —  $ {total:N2}",
+                    Padding = new Padding(6),
+                    BackColor = Color.Transparent
+                };
+                flpFormasPago.Controls.Add(lbl);
+            }
+
+            // Si existen ventas con no forma (por seguridad)
+            var otros = agrupado.FirstOrDefault(a => a.Forma == "Sin forma");
+            if (otros != null)
+            {
+                var lblOtros = new Label
+                {
+                    AutoSize = false,
+                    Width = flpFormasPago.ClientSize.Width - 25,
+                    Height = 36,
+                    ForeColor = Color.Yellow,
+                    Font = new Font("Bahnschrift SemiCondensed", 11F, FontStyle.Bold),
+                    Text = $"{otros.Forma}: {otros.CantidadVentas} ventas  —  $ {otros.TotalFacturado:N2}",
+                    Padding = new Padding(6),
+                    BackColor = Color.Transparent
+                };
+                flpFormasPago.Controls.Add(lblOtros);
+            }
+        }
+    }
+}

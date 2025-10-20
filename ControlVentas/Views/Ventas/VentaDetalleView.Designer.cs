@@ -112,7 +112,7 @@
             btnAgregarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnAgregarProducto.Location = new Point(1421, 133);
             btnAgregarProducto.Name = "btnAgregarProducto";
-            btnAgregarProducto.Size = new Size(201, 47);
+            btnAgregarProducto.Size = new Size(201, 68);
             btnAgregarProducto.TabIndex = 5;
             btnAgregarProducto.Text = "Agregar Producto";
             btnAgregarProducto.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -131,6 +131,7 @@
             // 
             dgvDetalles.AllowUserToAddRows = false;
             dgvDetalles.AllowUserToDeleteRows = false;
+            dgvDetalles.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvDetalles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDetalles.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             dgvDetalles.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -151,16 +152,17 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.White;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvDetalles.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvDetalles.Location = new Point(101, 207);
+            dgvDetalles.Location = new Point(41, 207);
             dgvDetalles.Name = "dgvDetalles";
             dgvDetalles.ReadOnly = true;
             dgvDetalles.RowHeadersWidth = 51;
             dgvDetalles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDetalles.Size = new Size(1520, 540);
+            dgvDetalles.Size = new Size(1654, 556);
             dgvDetalles.TabIndex = 7;
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             panel1.BackColor = Color.FromArgb(192, 192, 255);
             panel1.Controls.Add(lblTotalItemsGrilla);
             panel1.Controls.Add(LabelTotal);
@@ -172,6 +174,7 @@
             // 
             // lblTotalItemsGrilla
             // 
+            lblTotalItemsGrilla.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblTotalItemsGrilla.AutoSize = true;
             lblTotalItemsGrilla.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTotalItemsGrilla.ForeColor = Color.FromArgb(192, 0, 0);
@@ -182,6 +185,7 @@
             // 
             // LabelTotal
             // 
+            LabelTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             LabelTotal.AutoSize = true;
             LabelTotal.Font = new Font("Bahnschrift SemiCondensed", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LabelTotal.ForeColor = Color.DimGray;
@@ -193,6 +197,7 @@
             // 
             // lblTotalVenta
             // 
+            lblTotalVenta.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblTotalVenta.AutoSize = true;
             lblTotalVenta.Font = new Font("Bahnschrift SemiCondensed", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTotalVenta.ForeColor = Color.Black;
@@ -204,13 +209,14 @@
             // 
             // btnGuardarVenta
             // 
+            btnGuardarVenta.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGuardarVenta.BackColor = Color.FromArgb(255, 128, 0);
             btnGuardarVenta.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnGuardarVenta.ForeColor = Color.FromArgb(64, 64, 64);
             btnGuardarVenta.IconChar = FontAwesome.Sharp.IconChar.Save;
             btnGuardarVenta.IconColor = Color.Black;
             btnGuardarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnGuardarVenta.Location = new Point(1275, 769);
+            btnGuardarVenta.Location = new Point(1302, 803);
             btnGuardarVenta.Name = "btnGuardarVenta";
             btnGuardarVenta.Size = new Size(211, 84);
             btnGuardarVenta.TabIndex = 9;

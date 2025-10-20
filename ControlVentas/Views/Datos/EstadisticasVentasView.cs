@@ -136,7 +136,7 @@ namespace ControlVentas.Views.Datos
                 lblProductoMasVendido.Text = "Producto más vendido: -";
                 lblRubroMasVendido.Text = "Rubro más vendido: -";
                 lblTotalProductos.Text = "Total productos vendidos: 0";
-                lblTotalFacturado.Text = "Total facturado: $ 0.00";
+                lblTotalFacturadoProductos.Text = "Total facturado: $ 0.00";
                 return;
             }
 
@@ -206,12 +206,16 @@ namespace ControlVentas.Views.Datos
                 : "Rubro más vendido: -";
 
             lblTotalProductos.Text = $"Total productos vendidos: {detallesSinFoto.Sum(x => x.cantidad)}";
-            lblTotalFacturado.Text = $"Total facturado: $ {detallesSinFoto.Sum(x => x.cantidad * x.precioUnitario):N2}";
+            lblTotalFacturadoProductos.Text = $"Total facturado en Productos: $ {detallesSinFoto.Sum(x => x.cantidad * x.precioUnitario):N2}";
 
             // Estadística solo para Fotografía
             var fotoDetalles = detalles.Where(d => d.producto.Rubro == RubroEnum.Fotografia).ToList();
             int cantidadFotos = fotoDetalles.Sum(x => x.cantidad);
             lblFotografia.Text = $"Fotos vendidas: {cantidadFotos}";
+
+            // NUEVO: total facturado en fotografía
+            decimal totalFacturadoFotos = fotoDetalles.Sum(x => x.cantidad * x.precioUnitario);
+            lblTotalFacturadoFotos.Text = $"Total facturado en fotografía: $ {totalFacturadoFotos:N2}";
         }
 
         private void btnVerPorRubro_Click(object sender, EventArgs e)
